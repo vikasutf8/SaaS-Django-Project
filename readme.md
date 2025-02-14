@@ -7,8 +7,15 @@ The goal of this project is to learn how to create a reusable foundation for bui
 - urls.py(define urls) --> views.py(main business logic) --> home.html(render frontend page)
 - inheritance templates : using `{% extends 'base.html'%}`
 - body is written and include by `{block name} {endblock name}`
+- create new app or microservices `python manage.py startapp "appname"`
+- models.py  migrations `python manage.py makemigrations` & `python manage.py migrate`
+
+
 ### Detailing of Project, logic & definations:
 - based function : render views.py as html
     -  its views taking argument as :request, as need ,extra *args, **kwargs
 - 'str' object has no attribute 'get' :: this is django security by defualt
 - pathlib ::
+- Installed Apps :application definitions inbuild also ..
+
+
