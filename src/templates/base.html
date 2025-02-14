@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>
+        
+        {% block head_title %}
+            SAAS
+        {% endblock head_title %}
+            
+    </title>
+</head>
+<body>
+    <h2>My Project Body Base class</h2>
+    <h3>{{page_title}}</h3>
+
+    
+    {% block content %}
+        this is replaced with home.html
+    {% endblock content %}
+        
+</body>
+</html>
