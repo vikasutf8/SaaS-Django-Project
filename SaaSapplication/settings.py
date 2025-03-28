@@ -85,6 +85,13 @@ WSGI_APPLICATION = 'SaaSapplication.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
+        # 'ENGINE': 'django.db.backends.postgressql',
+        # 'NAME':"postgres",
+        # "USER": "linpostgres",
+        "PASSWORD":"afryghrkjghsi",
+        "HOST":"",
+        "PORT":"5432"
+
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
@@ -130,3 +137,12 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+LOGIN_URL="user/login"
+LOGIN_REDIRECT_URL=""
+LOGOUT_REDIRECT_URL=LOGIN_URL
+
+#Email services -server setup -own setup or build it
+
+EMAIL_BACKEND="django.core.mail.backends.console.EmailBackend"
