@@ -88,9 +88,9 @@ DATABASES = {
         # 'ENGINE': 'django.db.backends.postgressql',
         # 'NAME':"postgres",
         # "USER": "linpostgres",
-        "PASSWORD":"afryghrkjghsi",
-        "HOST":"",
-        "PORT":"5432"
+        # "PASSWORD":"afryghrkjghsi",
+        # "HOST":"",
+        # "PORT":"5432"
 
         'NAME': BASE_DIR / 'db.sqlite3',
     }
