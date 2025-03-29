@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>Courses</h2>
+    {% for course in courses %}
+    <div class="card p-2 d-flex flex-row align-item-center">
+        <div class="col-10">
+            {{course.title}} - {{course.price}} INR
+        </div>
+        <div class="col-2">
+            {% if course.is_unlocked %}
+            <a href="{% url 'course_detail' course.id %}" class="btn btn-success">
+                View Course
+            </a>
+            {% else %}
+            <a href="{% url 'create_checkout_session' course.id %}" class="btn btn-danger">
+                Buy Course
+            </a>
+            {% endif %}
+        </div>
+    </div>
+    {% endfor %}
+{% endblock content %}
+
+{% comment %} create_checkout_session yet not creat
+ {% endcomment %}
+
+ 
+    
