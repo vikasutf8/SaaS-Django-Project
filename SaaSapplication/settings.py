@@ -146,3 +146,9 @@ LOGOUT_REDIRECT_URL=LOGIN_URL
 #Email services -server setup -own setup or build it
 
 EMAIL_BACKEND="django.core.mail.backends.console.EmailBackend"
+
+if DEBUG:
+    STRIPE_PUBLISHABLE_KEY="pk_test_51R84NoGasdSgZPvIAGmD5KAv5MJciNSkr0kOYUiRqA6YKNWrL7L6WzjUIL4BFky6PxS27Z4MQCcTI8ZMZvNahiIx00dMmBiUpG"
+    STRIPE_SECRET_KET="sk_test_51R84NoGasdSgZPvIFvr5QcRV8mDkP9NF0n4WKkXtB4EVbDLGZUd3THYkCU2Ht1iHqbQHocVCafuon6IvLglZDftv000h1xqAEE"
+    STRIPE_ENDPOINT_SECRET=""
+
