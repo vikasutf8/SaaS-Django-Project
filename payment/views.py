@@ -43,10 +43,30 @@ def create_chechout_session(request,course_id):
 @csrf_exempt
 @require_POST
 def stripe_webhook(request):
-    return None
+    payload =smart_str(request.body)
+    sig_header =request.META["HTTP_STRIPE_SIGNSTURE"]
+
+    try:
+         event =stripe.Webhook.construct_event(
+              payload,sig_header,settings.STRIPE_ENDPOINT_SECRET
+         )
+    except ValueError:
+         return JsonResponse({'error':"Invalid Payload"}, status=400)
+    
+    except stripe.error.SignatureVerificationError:
+         return JsonResponse({"error": "Invalid signature"},status=400)
+    
+    if event["type"] =="checkout.session.completed":
+         session =event["data"]["object"]
+         handle_checkout_session(session)
 
 def handle_checkout_session(session):
-    return None
+    couser_id =session["metadata"]["course_id"]
+    user_id =session["metadata"]["user_id"]
+    user =User.objects.get(id=user_id)
+
+    course =get_object_or_404(Course,pk=couser_id)
+    course.subscribers.add(user)
 
 @login_required
 def course_success(request):
